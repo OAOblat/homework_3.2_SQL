@@ -1,5 +1,6 @@
 package ru.netology.test;
 
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.*;
 import static com.codeborne.selenide.Selenide.open;
 import static ru.netology.data.DataHelper.*;
@@ -26,11 +27,7 @@ class AuthTest {
         var loginPage = new LoginPage();
         var authInfo = getAuthInfoDemo1();
         var verificationPage = loginPage.validLogin(authInfo);
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Selenide.sleep(2000);
         var verificationCode = SQLHelper.getVerificationCode().getCode();
         verificationPage.validVerify(verificationCode);
     }
@@ -40,11 +37,7 @@ class AuthTest {
         var loginPage = new LoginPage();
         var authInfo = getRandomUser();
         var verificationPage = loginPage.validRandomLogin(authInfo);
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Selenide.sleep(2000);
         var verificationCode = SQLHelper.getVerificationCode().getCode();
         verificationPage.validVerify(verificationCode);
         cleanDataBaseAfterAddNewRandomUser();
