@@ -27,7 +27,6 @@ class AuthTest {
         var loginPage = new LoginPage();
         var authInfo = getAuthInfoDemo1();
         var verificationPage = loginPage.validLogin(authInfo);
-        Selenide.sleep(2000);
         var verificationCode = SQLHelper.getVerificationCode().getCode();
         verificationPage.validVerify(verificationCode);
     }
@@ -37,7 +36,6 @@ class AuthTest {
         var loginPage = new LoginPage();
         var authInfo = getRandomUser();
         var verificationPage = loginPage.validRandomLogin(authInfo);
-        Selenide.sleep(2000);
         var verificationCode = SQLHelper.getVerificationCode().getCode();
         verificationPage.validVerify(verificationCode);
         cleanDataBaseAfterAddNewRandomUser();

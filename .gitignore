@@ -1,4 +1,3 @@
-.gradle
 .idea
 build/
 !gradle/wrapper/gradle-wrapper.jar
@@ -44,4 +43,4 @@ bin/
 /gradlew
 /gradlew.bat
 /settings.gradle
-/gradle/
+/.gradle/
